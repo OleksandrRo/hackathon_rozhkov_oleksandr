@@ -12,7 +12,8 @@ let timeLeft;
 
 let question;
 let wrongBtn;
-let points = 0;
+let scoreKeeper = document.getElementById("player-score");
+let poiNts = 0;
 
 let buttonA = document.getElementById("0");
 let buttonB = document.getElementById("1");
@@ -40,6 +41,26 @@ let questionArray = [
     answers: ["belong to us", "such a vibe", "better than cookies", "better than no base"],
     correctAnswer: 0
   },
+  {
+    question:"I just wanted to pet ______",
+    answers: ["the shelf", "the tacos", "the wabbits", "the other thing before I ate these tacos"],
+    correctAnswer: 2
+  },
+  {
+    question:"J-Qwery is _____",
+    answers: ["the dude slanging leftover chipotle behind starbucks", "a slang term for a life question", "a web API", "a word made up by the person who made this game"],
+    correctAnswer: 3
+  },
+  {
+    question:"In late may of 1926, Ralph Craumine invented the first _____",
+    answers: ["Toaster", "USB log", "nothing, thats complete bs", "color wheel"],
+    correctAnswer: 3
+  },
+  {
+    question:"Hit it from the _____",
+    answers: ["orange beam next to the 2nd coupler", "back", "this quiz is horrible", "nacho cheese"],
+    correctAnswer: 2
+  },
 ];
 
 function startTimer(){
@@ -63,14 +84,16 @@ let currentQuestionIndex = 0
 
 startBtn.addEventListener("click", function(){
     clearInterval(intervalGb); 
-    timeLeft = 60;    
+    timeLeft = 60;
+    poiNts = 0;
     startTimer();
+    currentQuestionIndex = 0;
     displayQuestion();
        
 });
 
 function dispHigh(params) {
-  alert('facehead');
+  clearInterval(intervalGb);
 }
 
 buttonA.addEventListener("click", answerSubmit);
@@ -78,32 +101,29 @@ buttonB.addEventListener("click", answerSubmit);
 buttonC.addEventListener("click", answerSubmit);
 buttonD.addEventListener("click", answerSubmit);
 
-function correctWin() {
-  if (currentQuestionIndex === 3) {
-    dispHigh();
-    
-  } else if (timeLeft >= 0) {
-      points += 10;
-      currentQuestionIndex ++;
-      displayQuestion();
-    }  
-}
-
-function answerSubmit(eV) {
-  let clicked = eV.currentTarget;
+function answerSubmit(userChoice) {
+  let clicked = userChoice.currentTarget;
   if (clicked.id == questionArray[currentQuestionIndex].correctAnswer) {
-    correctWin();
+    rightAnswer();
     } else {
       wrongAnswer();
     }
 }
 
-
+function rightAnswer() {
+  if (currentQuestionIndex === 7) {    
+    dispHigh();    
+  } else if (timeLeft >= 0) {
+      poiNts += 10;
+      currentQuestionIndex ++;
+      displayQuestion();
+    }  
+}
 
 function wrongAnswer() {
-  if (currentQuestionIndex === 3 || timeLeft <= 0) {
+  if (currentQuestionIndex === 7 || timeLeft <= 0) {
     displayPoop ();
-  } else (timeLeft -= 5) {
+  } else if (timeLeft -= 5) {
     currentQuestionIndex ++;
     displayQuestion ();
    }
@@ -124,8 +144,14 @@ function displayQuestion(params) {
     buttonA.innerText = questionArray[currentQuestionIndex].answers[0];
     buttonB.innerText = questionArray[currentQuestionIndex].answers[1];
     buttonC.innerText = questionArray[currentQuestionIndex].answers[2];
-    buttonD.innerText = questionArray[currentQuestionIndex].answers[3];    
+    buttonD.innerText = questionArray[currentQuestionIndex].answers[3];
+    scoreKeeper.textContent = `Your numerical level of power is ${poiNts}`;      
 }
+
+
+
+
+
 // function quizLord(clkEV) {
   
 // }

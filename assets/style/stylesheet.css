@@ -1,0 +1,31 @@
+body {
+    background-color: thistle;
+}
+
+
+#iamquizLORD {
+    height: 10%;
+    width: 10%;
+}
+
+header {
+    display: flex;
+    font-size: 180%;
+    justify-content: center;
+}
+.playerscore {
+    display: flex;
+    columns: 1;
+    justify-content: center;
+    font-size: 140%;
+    text-shadow: 5px 5px 5px yellowgreen;
+}
+section {
+    display: row; 
+    justify-content: center;
+}
+#start #reset {
+    display:flex;
+    columns: 2;
+    align-content: center;
+}
