@@ -1,10 +1,10 @@
 let startBtn = document.querySelector("#start");
 let resetBtn = document.querySelector("#reset");
 let highBtn = document.querySelector("#high-scores");
-
+let questionText = document.getElementById("questiontext");
 let timerCnt = document.querySelector("#timer");
 
-let playerId = document.querySelector("#playername");
+// let playerId = document.querySelector("#playername");
 let hiScores = document.querySelector("#highscores");
 
 let intervalGb;
@@ -88,12 +88,21 @@ startBtn.addEventListener("click", function(){
     poiNts = 0;
     startTimer();
     currentQuestionIndex = 0;
+    buttonA.setAttribute("style", "visibility: visible");
+    buttonB.setAttribute("style", "visibility: visible");
+    buttonC.setAttribute("style", "visibility: visible");
+    buttonC.setAttribute("style", "visibility: visible");
     displayQuestion();
-       
 });
 
 function dispHigh(params) {
   clearInterval(intervalGb);
+  questionText.textContent = ("");
+  buttonA.setAttribute("style", "visibility: hidden");
+  buttonB.setAttribute("style", "visibility: hidden");
+  buttonC.setAttribute("style", "visibility: hidden");
+  buttonC.setAttribute("style", "visibility: hidden");
+  alert("Quiz Lord is Master of the DOM");
 }
 
 buttonA.addEventListener("click", answerSubmit);
@@ -122,24 +131,25 @@ function rightAnswer() {
 
 function wrongAnswer() {
   if (currentQuestionIndex === 7 || timeLeft <= 0) {
-    displayPoop ();
+    dispHigh ();
   } else if (timeLeft -= 5) {
     currentQuestionIndex ++;
     displayQuestion ();
    }
 } 
 
-function displayPoop() {
-  if (timeLeft >= 5) {
-    timeLeft -= 5; 
- } else if (timeLeft < 5) {
-   timerCnt.textContent = "Quiz Lord Wins";
-   clearInterval(intervalGb);
- }
-}
+
+
+// function displayPoop() {
+//   if (timeLeft >= 5) {
+//     timeLeft -= 5; 
+//  } else if (timeLeft < 5) {
+//    timerCnt.textContent = "Quiz Lord Wins";
+//    clearInterval(intervalGb);
+//  }
+// }
 
 function displayQuestion(params) {
-  let questionText = document.getElementById("questiontext");
     questionText.textContent = questionArray[currentQuestionIndex].question;
     buttonA.innerText = questionArray[currentQuestionIndex].answers[0];
     buttonB.innerText = questionArray[currentQuestionIndex].answers[1];
@@ -148,9 +158,43 @@ function displayQuestion(params) {
     scoreKeeper.textContent = `Your numerical level of power is ${poiNts}`;      
 }
 
+let noteForm = document.getElementById("highscores");
+const noteInput = document.getElementById("note-input");
+const noteSubmit = document.getElementById("note-submit");
+const notes = document.getElementById("notes");
 
 
 
+noteForm.addEventListener("submit", function(e) {
+  e.preventDefault();
+  notesStorage.push(noteInput.value);
+  localStorage.setItem("notes", JSON.stringify(notesStorage));
+  listBuilder(noteInput.value);
+  noteInput.value = "";
+});
+
+noteForm = localStorage.getitem("notes")
+? JSON.parse(localStorage.getItem("scores"))
+: [];
+
+const listBuilder = (text) => {
+  const note = document.createElement("li");
+  note.innerHTML = text;
+  notes.appendChild(note);
+};
+
+const getNotes = JSON.parse(localStorage.getItem("notes"));getNotes.forEach((note) => {
+  listBuilder(note);
+});
+
+
+// const deleteNote = (btn) => {
+//   let el = btn.parentNode;
+//   const index = [...el.parentElement.children].indexOf(el);
+//   notesStorage.splice(index, 1);
+//   localStorage.setItem("notes", JSON.stringify(notesStorage));
+//   el.remove();
+// };
 
 // function quizLord(clkEV) {
   
