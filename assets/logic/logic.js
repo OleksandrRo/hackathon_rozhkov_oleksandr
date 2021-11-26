@@ -54,12 +54,12 @@ let questionArray = [
   {
     question:"In late may of 1926, Ralph Craumine invented the first _____",
     answers: ["Toaster", "USB log", "nothing, thats complete bs", "color wheel"],
-    correctAnswer: 3
+    correctAnswer: 2
   },
   {
     question:"Hit it from the _____",
     answers: ["orange beam next to the 2nd coupler", "back", "this quiz is horrible", "nacho cheese"],
-    correctAnswer: 2
+    correctAnswer: 1
   },
 ];
 
@@ -76,7 +76,11 @@ function startTimer(){
 
 resetBtn.addEventListener("click", function(){
     clearInterval(intervalGb);
-    timerCnt.textContent = 60;
+    timerCnt.textContent = "";
+    buttonA.setAttribute("style", "visibility: hidden");
+    buttonB.setAttribute("style", "visibility: hidden");
+    buttonC.setAttribute("style", "visibility: hidden");
+    buttonD.setAttribute("style", "visibility: hidden");
 
 });
 
@@ -91,7 +95,7 @@ startBtn.addEventListener("click", function(){
     buttonA.setAttribute("style", "visibility: visible");
     buttonB.setAttribute("style", "visibility: visible");
     buttonC.setAttribute("style", "visibility: visible");
-    buttonC.setAttribute("style", "visibility: visible");
+    buttonD.setAttribute("style", "visibility: visible");
     displayQuestion();
 });
 
@@ -101,9 +105,12 @@ function dispHigh(params) {
   buttonA.setAttribute("style", "visibility: hidden");
   buttonB.setAttribute("style", "visibility: hidden");
   buttonC.setAttribute("style", "visibility: hidden");
-  buttonC.setAttribute("style", "visibility: hidden");
-  alert("Quiz Lord is Master of the DOM");
+  buttonD.setAttribute("style", "visibility: hidden");
+  timerCnt.textContent = "";
+  saveHighScore();
 }
+
+quizLord = document.getElementById("iamquizLORD");
 
 buttonA.addEventListener("click", answerSubmit);
 buttonB.addEventListener("click", answerSubmit);
@@ -123,8 +130,9 @@ function rightAnswer() {
   if (currentQuestionIndex === 7) {    
     dispHigh();    
   } else if (timeLeft >= 0) {
-      poiNts += 10;
+      poiNts += 1000;
       currentQuestionIndex ++;
+      quizLord.src = "./assets/images/QuizLord.png"; 
       displayQuestion();
     }  
 }
@@ -134,10 +142,14 @@ function wrongAnswer() {
     dispHigh ();
   } else if (timeLeft -= 5) {
     currentQuestionIndex ++;
+    quizLord.src = "./assets/images/quizLordWrong.png";
     displayQuestion ();
    }
 } 
 
+function saveHighScore() {
+  hiScores.setAttribute("style", "display: flex");
+}
 
 
 // function displayPoop() {
@@ -155,37 +167,46 @@ function displayQuestion(params) {
     buttonB.innerText = questionArray[currentQuestionIndex].answers[1];
     buttonC.innerText = questionArray[currentQuestionIndex].answers[2];
     buttonD.innerText = questionArray[currentQuestionIndex].answers[3];
-    scoreKeeper.textContent = `Your numerical level of power is ${poiNts}`;      
+    scoreKeeper.textContent = `${poiNts}`;     
 }
 
-let noteForm = document.getElementById("highscores");
+
 const noteInput = document.getElementById("note-input");
 const noteSubmit = document.getElementById("note-submit");
 const notes = document.getElementById("notes");
+let notesStorage = JSON.parse(localStorage.getItem("notes"))? JSON.parse(localStorage.getItem("notes")): [];
 
 
-
-noteForm.addEventListener("submit", function(e) {
+hiScores.addEventListener("submit", function(e) {
   e.preventDefault();
-  notesStorage.push(noteInput.value);
+  let currentScore = {
+    initials: noteInput.value,
+    score: scoreKeeper.innerText
+  }
+  notesStorage.push(currentScore);
+  console.log(notesStorage);
   localStorage.setItem("notes", JSON.stringify(notesStorage));
-  listBuilder(noteInput.value);
   noteInput.value = "";
+  hiScores.setAttribute("style", "display: none");
+  listBuilder();
 });
 
-noteForm = localStorage.getitem("notes")
-? JSON.parse(localStorage.getItem("scores"))
-: [];
 
-const listBuilder = (text) => {
-  const note = document.createElement("li");
-  note.innerHTML = text;
+
+const listBuilder = () => {
+  notes.innerHTML = "";
+  notesStorage.forEach(initialsScore => {
+    const note = document.createElement("li");
+  note.innerHTML = initialsScore.initials + " <------> " + initialsScore.score;
   notes.appendChild(note);
+  });
 };
 
-const getNotes = JSON.parse(localStorage.getItem("notes"));getNotes.forEach((note) => {
-  listBuilder(note);
-});
+listBuilder();
+
+// const getNotes = JSON.parse(localStorage.getItem("notes"));getNotes.forEach((note) => {
+//   listBuilder(note);
+// });
 
 
 // const deleteNote = (btn) => {

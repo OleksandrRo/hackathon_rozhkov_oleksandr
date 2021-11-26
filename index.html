@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="./assets/style/stylesheet.css">
-    <title>Herfman Quiz Lord</title>
+    <title>Lord of the Quiz</title>
 </head>    
 
 
@@ -15,36 +15,42 @@
             Lord of the Quiz
         </h1>
         <img src="./assets/images/QuizLord.png" id="iamquizLORD" alt="Lord of the Quiz"></img>
+        <div class="game-controls">
+            <button id="start">Start</button>
+            <button id="reset">Reset</button>
+        </div>
     </header>
     
     <section class="playerscore">
-        <h3></h3>
+        <h3>SCORE  =   </h3>
         <h4 id="player-score"></h4>
     </section>
-    <section>
-        <button id="start">Start</button>
-        <button id="reset">Reset</button>
+  
+        
         <div id="questions">
             <h2 id="questiontext"></h2>
-            <div id="timer">60</div>
-        </div>
-        <button id="0" name="0"></button>
-        <button id="1" name="1"></button>
-        <button id="2" name="2"></button>
-        <button id="3"name="3"></button>
-
+        </div> 
+            <button class= "question" id="0" name="0"></button>
+            <button class= "question" id="1" name="1"></button>
+            <button class= "question" id="2" name="2"></button>
+            <button class= "question" id="3"name="3"></button>
+           
+        <div id="timer"> </div>
         <form id="highscores">
+            <h3 id="directions">Enter your initials and claim the title, Lord of the Quiz = </h3>
             <input id="note-input" type="text" placeholder="Enter your initials" required />
             <button id="note-submit">Save</button>
-          </form>
-          <ul id="notes">
+          
+        </form>
+    <h3 id="highscoreheader">HIGH SCORES</h3>
+    <br>    
+    <h3 id="scoreboardlabel">PLAYER ---- SCORE</h4>
+    <br>
+        <section id="scoreboard">
+        <ul id="notes">
 
-          </ul>
-            
-        </div>
-    </section> 
-
-
+        </ul>
+    </section>
     <script src="./assets/logic/logic.js" type="text/javascript"></script>
 
 </body>

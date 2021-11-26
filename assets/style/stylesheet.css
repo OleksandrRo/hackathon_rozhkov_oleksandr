@@ -1,5 +1,13 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin:0;
+}
+
 body {
-    background-color: thistle;
+    background-image: url(/HerfQuiz/assets/images/Background.jpg);
+    background-size: cover;
+    font-family:cursive;
 }
 
 
@@ -9,23 +17,101 @@ body {
 }
 
 header {
-    display: flex;
+    margin-top: 3%;
+    display: inline-flex;
     font-size: 180%;
+    text-shadow: 5px 5px 10px chartreuse;
     justify-content: center;
 }
 .playerscore {
     display: flex;
-    columns: 1;
     justify-content: center;
-    font-size: 140%;
-    text-shadow: 5px 5px 5px yellowgreen;
+    font-size: 180%;
+    color: chartreuse;
+    text-shadow: -5px 5px 5px whitesmoke;
 }
-section {
-    display: row; 
+#player-score {
+    display: flex;
+    justify-content: center;
+    font-size: 160%;
+    color: turquoise;
+    text-shadow: 5px 5px 10px black;
+}
+
+#questions {
+    color: whitesmoke;
+    display: flex;
     justify-content: center;
 }
-#start #reset {
+
+.question {
     display:flex;
-    columns: 2;
-    align-content: center;
+    align-items:inherit;
+    justify-content: center;
+    padding: 15px;
+    margin:auto;
+    font-size: 120%;
+    border-radius: 20px;
+    visibility: hidden;
 }
+
+.game-controls {
+    display:flex;
+    align-content: space-between;
+}
+#start, #reset {
+    background-color: black;
+    color: chartreuse;
+    border-radius: 20px;
+    max-height: 30%;
+    max-width: 1400%;
+    padding: 20%;
+    margin: 10%;
+    box-shadow: 10px 5px 20px white;
+}
+#timer {
+    display: flex;
+    justify-content: center;
+    font-size: 180%;
+    text-shadow: 5px 5px 10px black;
+    color: chartreuse;
+}
+#highscores {
+    display: none;
+    justify-content: center;
+    max-height: 100%;
+    color: chartreuse;
+    text-shadow: 5px 5px 10px gold;
+
+}
+#scoreboard {
+    display:flex;
+    color: chartreuse;
+    justify-content:center;
+    position: inherit;
+}
+#highscoreheader {
+    display: flex;
+    justify-content: center;
+    color: chartreuse;
+    text-shadow: 5px 5px 5px whitesmoke;
+    font-size: 180%;
+    box-shadow: 5px 5px 10px black;
+}
+#scoreboardlabel {
+    display: flex;
+    justify-content: center;
+    color: chartreuse;
+    text-shadow: 5px 5px 5px whitesmoke;
+    font-size: 170%;
+}
+
+ #notes {
+    display: list-item;
+    list-style-type: none;
+    color: chartreuse;
+    text-shadow: 5px 5px 10px whitesmoke;
+    font-size: 150%;
+    margin: 0%;
+    padding: 0%;
+ }
