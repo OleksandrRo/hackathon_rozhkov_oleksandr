@@ -152,15 +152,6 @@ function saveHighScore() {
 }
 
 
-// function displayPoop() {
-//   if (timeLeft >= 5) {
-//     timeLeft -= 5; 
-//  } else if (timeLeft < 5) {
-//    timerCnt.textContent = "Quiz Lord Wins";
-//    clearInterval(intervalGb);
-//  }
-// }
-
 function displayQuestion(params) {
     questionText.textContent = questionArray[currentQuestionIndex].question;
     buttonA.innerText = questionArray[currentQuestionIndex].answers[0];
@@ -203,55 +194,3 @@ const listBuilder = () => {
 };
 
 listBuilder();
-
-// const getNotes = JSON.parse(localStorage.getItem("notes"));getNotes.forEach((note) => {
-//   listBuilder(note);
-// });
-
-
-// const deleteNote = (btn) => {
-//   let el = btn.parentNode;
-//   const index = [...el.parentElement.children].indexOf(el);
-//   notesStorage.splice(index, 1);
-//   localStorage.setItem("notes", JSON.stringify(notesStorage));
-//   el.remove();
-// };
-
-// function quizLord(clkEV) {
-  
-// }
-
-
-
-
-// for (let i = 0; i <question.length; i++) {
-//     console.log(question.length);
-//     currentQuestion = question[i];
-//     console.log(currentQuestion);
-// }
-
-
-// if wrongBtn.textContent = questionArray[][correctAnswer]
-
-// document.addEventListener('click' )
-
-// const question = questionArray[currentQuestion];
-
-// if (rightAnswer) {
-  
-// }
-// let correctAnswers = questions[correctAnswer][];
-
-// for (let i = 0; i < question.length; i++) {
-//   currentQuestion = question[i];
-// }
-
-// questionArray[i].answers
-// for (let = 0; i < array.lenth; i++) {
-
-// }  
-// let currentQuestion = 0;
-
-
-// document.querySelector("#question").textContent = questions[currentQuestion];
-
