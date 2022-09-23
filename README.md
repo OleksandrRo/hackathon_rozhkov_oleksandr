@@ -9,8 +9,8 @@ create and change some functional :
 - change logic button reset, button to reset the lockalStore and restart game
  
 add new design like a 90's style':
--add gif, fonts, backgroun, links.
--create mobile version app
+- add gif, fonts, backgroun, links.
+- create mobile version app
 
 Have a fun ))
 
