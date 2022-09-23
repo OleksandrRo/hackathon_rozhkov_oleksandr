@@ -1,4 +1,40 @@
-LORD of THE QUIZ
+Rebuild this game 
+LORD of THE QUIZ => Lord of React
+
+create and change some functional :
+
+- rebuild function to arow function
+  rebuild all to const
+- change logic button start, button to reset the previous result of the game
+- change logic button reset, button to reset the lockalStore and restart game
+ 
+add new design like a 90's style'.
+
+Have a fun ))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 Long ago, there was a city named Jaquery. It's people, known as the Quiz, were searching for peace in a war-torn land ravaged by a troll-like monster named Herf Man. Herf Man was the smartest enemy the Quiz had ever faced. In order to beat him they called upon you to answer their summons and defeat Herf Man, once and for all. 
 
