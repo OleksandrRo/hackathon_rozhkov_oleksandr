@@ -251,7 +251,7 @@ a{
 
     h2{
         margin: 8vw;
-        margin-top: -28vh;
+        margin-top: -30vh;
         margin-left: 20vw;
     }
 
@@ -341,7 +341,7 @@ a{
        
      #inputNick {
         position: absolute;
-        top: 78vh;    
+        top: 80vh;    
     }
     
     #note-input {
@@ -373,10 +373,11 @@ a{
     }
 
     #questions {
-        color: whitesmoke;
-        display: flex;
-        justify-content: center;
-        margin-top: 15vh;
+        margin-top: 30vh;
+    }
+    .question{
+        position: relative;
+        top: -7vh;
     }
 
     a{
