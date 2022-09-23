@@ -6,8 +6,9 @@
 
 body {
     position: relative;
-    background-image: url(/assets/images/V25.gif);
+    background-image: url(/assets/images/tumblr_mstilrbN8P1s5jjtzo1_500.gif);
     background-size:contain;
+    background-color: black;
     font-family:cursive;
     
 }
@@ -180,7 +181,7 @@ header {
 
  #inputNick {
     position: absolute;
-    top: 84vh;    
+    top: 87vh;    
 }
 
 #note-input {
@@ -209,4 +210,178 @@ height: 5vh;
 
 #image_f4{
     width: 14%;
+}
+
+a{
+    color: white;
+    margin: 2vw;
+    position: relative;
+    top: 40vh;
+    left: 35vw;
+   
+}
+
+
+
+
+
+
+@media only screen and (max-width: 600px) {
+    
+ 
+    * {
+        box-sizing: border-box;
+        padding: 0;
+        margin:0;
+        font-family: "Comic Sans MS", "Comic Sans";
+    }
+    
+    #quizLORD {
+       margin-left: 40%;
+       margin-top: 5vh;
+       width: 30%;
+    
+    }
+    
+  
+    
+    h1{
+      display: none;  
+    }
+
+    h2{
+        margin: 8vw;
+        margin-top: -28vh;
+        margin-left: 20vw;
+    }
+
+
+    .playerscore {
+        display: flex;
+        justify-content: center;
+        font-size: 180%;
+        color: chartreuse;
+        text-shadow: 5px 5px 10px rgb(91, 189, 255);
+        
+    }
+
+    #highscoreheader {
+        margin-left: 5vw;
+        
+    }
+    #scoreboardlabel {
+       margin-left: 5vw;
+    }
+
+    #player-score {
+        display: flex;
+        justify-content: center;
+        font-size: 160%;
+        color: turquoise;
+        text-shadow: 5px 5px 10px rgb(91, 189, 255);
+        
+        
+    }
+    .image_disk {
+        position: absolute;
+        top: 25vh;
+        left: 4vw;
+        width: 6%;
+        
+    }
+    
+    .image_exp {
+        position: absolute;
+        top: 15vh;
+        right: 2vw;
+        width: 9%;
+        
+    }
+    
+    .image_tv {
+        position: absolute;
+        top: 15vh;
+        left: 15vw;
+        width: 10%;
+        
+    }
+    
+    .image_spin {
+        position: absolute;
+        top: 25vh;
+        left: 83vw;
+        width: 5%;
+        
+    }
+    
+    .image_99 {
+        position: absolute;
+        top: 42vh;
+        left: 35vw;
+        width: 30%;
+        height: auto;
+        
+    }
+    
+ 
+   
+     #start, #reset { 
+        max-height: 30%;
+        max-width: 1400%;
+        padding: 20%;
+        margin-left: 50%;
+        margin-top: 40%;
+        
+     }
+    
+     h4 {
+        position: relative;
+        margin-top: -1.4vh;
+    } 
+       
+     #inputNick {
+        position: absolute;
+        top: 78vh;    
+    }
+    
+    #note-input {
+    width: auto;
+    height: 5vh;
+    }
+    #note-submit {
+    width: 30vw;
+    height: 5vh;
+    }
+    
+    #image_f1{
+        width: 30%;
+        margin-top: 30vh;
+        margin-left: 40vw;
+    }
+    
+    #image_f2{
+        display: none;
+        
+    }
+    
+    #image_f3{
+        display: none;
+    }
+    
+    #image_f4{
+        display: none;
+    }
+
+    #questions {
+        color: whitesmoke;
+        display: flex;
+        justify-content: center;
+        margin-top: 15vh;
+    }
+
+    a{
+        top: 28vh;
+        left: 5vw;
+       
+    }
 }
